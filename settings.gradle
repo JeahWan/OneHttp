@@ -1,0 +1,2 @@
+include ':app', ':simplehttp'
+rootProject.name='MK-SimpleHttp'
