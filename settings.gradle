@@ -1,2 +1,2 @@
-include ':app', ':simplehttp'
-rootProject.name='MK-SimpleHttp'
+include ':app', ':onehttp', ':onehttp-compiler'
+rootProject.name = 'OneHttp'

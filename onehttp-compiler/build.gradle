@@ -1,0 +1,50 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    // 编译时期进行注解处理
+    kapt 'com.google.auto.service:auto-service:1.0.1'
+    implementation 'com.google.auto.service:auto-service:1.0.1'
+    // 帮助我们通过类调用的方式来生成Kotlin代码[KotlinPoet]
+    implementation 'com.squareup:kotlinpoet:1.10.2'
+}
+
+// 控制台中文设置UTF-8
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+version = '1.0.0'
+publishing {
+    version = version + '-SNAPSHOT'
+    publications {
+        mavenJava(MavenPublication) {
+            //指定group/artifact/version信息
+            groupId 'com.feierlaiedu.library'
+            artifactId 'onehttp-compiler'
+            version project.version
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            credentials {
+                username 'admin' // 仓库发布用户名
+                password 'aqd9m6i0nu' // 仓库发布用户密码
+            }
+            allowInsecureProtocol = true
+            url uri('http://testnexus.kakahui.net/nexus/content/repositories/snapshots')
+        }
+    }
+}
