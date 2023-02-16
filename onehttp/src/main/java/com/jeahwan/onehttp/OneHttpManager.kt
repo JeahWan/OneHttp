@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import com.chuckerteam.chucker.api.Chucker
-import com.chuckerteam.chucker.api.ChuckerInterceptor
+//import com.chuckerteam.chucker.api.Chucker
+//import com.chuckerteam.chucker.api.ChuckerInterceptor
 
 @SuppressLint("StaticFieldLeak")
 object OneHttpManager {
@@ -24,12 +24,12 @@ object OneHttpManager {
     lateinit var errorCodeHandle: Map<Int, () -> Unit>
 
     fun openChuck() {
-        context.startActivity(
-            Chucker.getLaunchIntent(
-                context
-            ).apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK }
-        )
+//        context.startActivity(
+//            Chucker.getLaunchIntent(
+//                context
+//            ).apply { flags = Intent.FLAG_ACTIVITY_NEW_TASK }
+//        )
     }
 
-    fun getChuck(context: Context): okhttp3.Interceptor = ChuckerInterceptor(context)
+//    fun getChuck(context: Context): okhttp3.Interceptor = ChuckerInterceptor(context)
 }

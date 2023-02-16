@@ -8,7 +8,7 @@ class HttpResult<T> : Serializable {
     var code = 0
 
     //泛型指定返回的数据结构 如自定义bean、List、String[]等任意
-    var data: T? = null
+    var data: T = TODO()
 
     /**
      * 返回错误处理

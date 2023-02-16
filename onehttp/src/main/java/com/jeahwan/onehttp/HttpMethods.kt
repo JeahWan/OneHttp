@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Base64
 import androidx.core.app.ActivityCompat
-import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.jeahwan.onehttp.utils.DeviceUtils
 import com.jeahwan.onehttp.utils.MD5HexHelper
 import com.google.gson.Gson
@@ -163,7 +162,7 @@ open class HttpMethods {
                         .build()
                 )
                 //Chuck
-                .addInterceptor(ChuckerInterceptor(OneHttpManager.context))
+//                .addInterceptor(ChuckerInterceptor(OneHttpManager.context))
         }
         okHttpClient = clientBuilder.build()
         createService()
